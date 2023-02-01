@@ -1,133 +1,106 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutterproject/Constant/app_assets.dart';
-import 'package:flutterproject/Constant/app_colors.dart';
-import 'package:flutterproject/Constant/globals.dart';
-import 'package:flutterproject/Utilities/utilities.dart';
-import 'package:flutterproject/Widgets/buttons/gradient_button.dart';
+import 'package:flutterproject/constant/colors.dart';
 
 class CustomDialog extends StatelessWidget {
-  const CustomDialog(
-      {Key? key,
-      this.title = '',
-      this.description = '',
-      this.onLeftButtonTap,
-      this.onRightButtonTap,
-      this.onclosetap,
-      this.iconPath,
-      this.leftButtonTitle = '',
-      this.rightButtonTitle = '',
-      this.showButtons = true})
-      : super(key: key);
+  const CustomDialog({
+    Key? key,
+    this.title,
+    this.description,
+    this.button1,
+    this.button2,
+    this.descrpitionTextAlign = TextAlign.justify,
+    this.tap1,
+    this.tap2,
+  }) : super(key: key);
 
-  final String title, description, leftButtonTitle, rightButtonTitle;
-  final String? iconPath;
-  final VoidCallback? onLeftButtonTap, onRightButtonTap, onclosetap;
-  final bool showButtons;
+  final String? title;
+  final String? description;
+  final String? button1;
+  final String? button2;
+  final TextAlign? descrpitionTextAlign;
+  final VoidCallback? tap1;
+  final VoidCallback? tap2;
 
   @override
   Widget build(BuildContext context) {
-    return BackdropFilter(
-      filter: ImageFilter.blur(
-        sigmaX: 5.0,
-        sigmaY: 5.0,
+    return Dialog(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
-      child: AlertDialog(
-        backgroundColor: AppColors.dialogColor,
-        insetPadding: EdgeInsets.all(16),
-        contentPadding: EdgeInsets.fromLTRB(20, showButtons ? 40 : 12, 20, 40),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(18.0),
-          ),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: AppColors.lightgrey),
         ),
-        content: Container(
-          // height: AppGlobals.screenHeight * 0.6,
-          width: double.infinity,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              showButtons
-                  ? SizedBox.shrink()
-                  : Container(
-                      alignment: Alignment.centerRight,
-                      padding: EdgeInsets.only(bottom: 28),
-                      child: InkWell(
-                        onTap: () {
-                          if (onclosetap != null) {
-                            onclosetap!();
-                          } else {
-                            Navigator.pop(context);
-                          }
-                        },
-                        child: Icon(Icons.close, color: AppColors.textColor),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 15),
+            Text(
+              title ?? '',
+              // style: Helper.setTextStyle(
+              //   16,
+              //   FontWeight.bold,
+              //   color: AppColors.text,
+              // ),
+            ),
+            // SizedBox(height: 30),
+            if (description != null)
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  description ?? '',
+                  textAlign: descrpitionTextAlign,
+                  //   style: Helper.setTextStyle(16, FontWeight.w400,
+                  //       color: AppColors.text),
+                ),
+              ),
+            if (description == null) const SizedBox(height: 30),
+            const Divider(height: 0),
+            IntrinsicHeight(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: tap1,
+                      child: Center(
+                        child: Container(
+                          padding: const EdgeInsets.all(12),
+                          child: Text(
+                            button1 ?? '',
+                            // style: Helper.setTextStyle(
+                            //   16,
+                            //   // color: AppColors.blue,
+                            //   FontWeight.w500,
+                            // ),
+                          ),
+                        ),
                       ),
                     ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: Utilities.setTextStyle(
-                      16,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.textColor,
+                  ),
+                  const VerticalDivider(),
+                  Expanded(
+                    child: InkWell(
+                      onTap: tap2,
+                      child: Center(
+                        child: Container(
+                          padding: const EdgeInsets.all(12),
+                          child: Text(
+                            button2 ?? '',
+                            // style: Helper.setTextStyle(
+                            //   16,
+                            //   FontWeight.w500,
+                            //   color: AppColors.primary,
+                            // ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                  SizedBox(height: 12),
-                  Text(
-                    description,
-                    textAlign: TextAlign.center,
-                    style: Utilities.setTextStyle(
-                      14,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.textColor,
-                    ),
-                  ),
-                  SizedBox(height: 22),
-                  Flexible(
-                    child: Image.asset(
-                      iconPath ?? AppImages.dialoglogo,
-                      width: AppGlobals.screenWidth * 0.7,
-                      height: AppGlobals.screenHeight * 0.3,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                  showButtons
-                      ? Column(
-                          children: [
-                            SizedBox(height: 32),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: GradientButton(
-                                    title: leftButtonTitle,
-                                    isGradient: false,
-                                    onTap: onLeftButtonTap ??
-                                        () => Navigator.pop(context),
-                                  ),
-                                ),
-                                SizedBox(width: 20),
-                                Expanded(
-                                  child: GradientButton(
-                                    title: rightButtonTitle,
-                                    onTap: onRightButtonTap ??
-                                        () => Navigator.pop(context),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        )
-                      : SizedBox.shrink(),
-                  // SizedBox(height: 20,
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/Constant/app_colors.dart';
-import 'package:flutterproject/Utilities/utilities.dart';
+import 'package:flutterproject/constant/colors.dart';
+import 'package:flutterproject/helpers/ui_helpers.dart';
 
 class CartQtyCounter extends StatefulWidget {
   CartQtyCounter({Key? key, this.quatity = 1, this.outStock = false})
@@ -26,7 +26,7 @@ class _CartQtyCounterState extends State<CartQtyCounter> {
                 Icons.remove,
                 size: 16,
                 color: widget.quatity > 1
-                    ? AppColors.textColor
+                    ? AppColors.text
                     : AppColors.grey.withOpacity(widget.outStock ? 0.25 : 0.5),
               ),
             ),
@@ -40,12 +40,12 @@ class _CartQtyCounterState extends State<CartQtyCounter> {
           ),
           Text(
             "${widget.quatity}",
-            style: Utilities.setTextStyle(
-              14,
+            style: Helper.textStyle(
+              fontSize: 14,
               fontWeight: FontWeight.w600,
               color: widget.outStock
-                  ? AppColors.textColor.withOpacity(0.5)
-                  : AppColors.textColor,
+                  ? AppColors.text.withOpacity(0.5)
+                  : AppColors.text,
             ),
           ),
           InkWell(
@@ -55,8 +55,8 @@ class _CartQtyCounterState extends State<CartQtyCounter> {
                 Icons.add,
                 size: 16,
                 color: widget.outStock
-                    ? AppColors.textColor.withOpacity(0.5)
-                    : AppColors.textColor,
+                    ? AppColors.text.withOpacity(0.5)
+                    : AppColors.text,
               ),
             ),
             onTap: () {

@@ -1,0 +1,2 @@
+// Url Launcher
+class UrlHelper {}

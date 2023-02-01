@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/Constant/app_assets.dart';
-import 'package:flutterproject/Constant/app_colors.dart';
-import 'package:flutterproject/Constant/globals.dart';
-import 'package:flutterproject/Utilities/utilities.dart';
-import 'package:flutterproject/Widgets/buttons/gradient_button.dart';
+import 'package:flutterproject/constant/assets.dart';
+import 'package:flutterproject/constant/colors.dart';
+import 'package:flutterproject/constant/globals.dart';
+import 'package:flutterproject/helpers/ui_helpers.dart';
+import 'package:get/get.dart';
 
 class CustomSimpleDialog extends StatelessWidget {
   const CustomSimpleDialog(
@@ -57,28 +57,28 @@ class CustomSimpleDialog extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: Utilities.setTextStyle(
-                    16,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.black,
-                  ),
+                  // style: Helper.textStyle(
+                  //   16,
+                  //   fontWeight: FontWeight.w600,
+                  //   color: AppColors.black,
+                  // ),
                 ),
                 SizedBox(height: 12),
                 Text(
                   description,
                   textAlign: TextAlign.center,
-                  style: Utilities.setTextStyle(
-                    14,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.black,
-                  ),
+                  // style: Utilities.setTextStyle(
+                  //   14,
+                  //   fontWeight: FontWeight.w400,
+                  //   color: AppColors.black,
+                  // ),
                 ),
                 SizedBox(height: 22),
                 Flexible(
                   child: Image.asset(
-                    iconPath ?? AppImages.dialoglogo,
-                    width: AppGlobals.screenWidth * 0.7,
-                    height: AppGlobals.screenHeight * 0.3,
+                    iconPath ?? "", //AppImages.dialoglogo,
+                    width: Get.width * 0.7,
+                    height: Get.height * 0.3,
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -88,18 +88,18 @@ class CustomSimpleDialog extends StatelessWidget {
                           SizedBox(height: 32),
                           Row(
                             children: [
-                              Expanded(
-                                  child: GradientButton(
-                                      title: leftButtonTitle,
-                                      isGradient: false,
-                                      onTap: onLeftButtonTap ??
-                                          () => Navigator.pop(context))),
+                              // Expanded(
+                              //     child: GradientButton(
+                              //         title: leftButtonTitle,
+                              //         isGradient: false,
+                              //         onTap: onLeftButtonTap ??
+                              //             () => Navigator.pop(context))),
                               SizedBox(width: 20),
-                              Expanded(
-                                  child: GradientButton(
-                                      title: rightButtonTitle,
-                                      onTap: onRightButtonTap ??
-                                          () => Navigator.pop(context))),
+                              // Expanded(
+                              //     child: GradientButton(
+                              //         title: rightButtonTitle,
+                              //         onTap: onRightButtonTap ??
+                              //             () => Navigator.pop(context))),
                             ],
                           ),
                         ],

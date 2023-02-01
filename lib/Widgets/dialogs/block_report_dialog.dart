@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/Constant/app_colors.dart';
-import 'package:flutterproject/Constant/app_strings.dart';
-import 'package:flutterproject/Widgets/buttons/gradient_button.dart';
+import 'package:flutterproject/constant/colors.dart';
 
 class BlockAndReportDialog extends StatefulWidget {
   final String leftButtonTitle, rightButtonTitle;
@@ -50,7 +48,7 @@ class _BlockAndReportDialogState extends State<BlockAndReportDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: AppColors.bgColor,
+      backgroundColor: AppColors.scaffold,
       insetPadding: EdgeInsets.all(16),
       contentPadding: EdgeInsets.fromLTRB(20, 40, 20, 40),
       shape: RoundedRectangleBorder(
@@ -73,7 +71,7 @@ class _BlockAndReportDialogState extends State<BlockAndReportDialog> {
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 14,
-                      color: AppColors.textColor),
+                      color: AppColors.text),
                   textAlign: TextAlign.center,
                 ),
                 CheckBoxWidget(
@@ -101,16 +99,16 @@ class _BlockAndReportDialogState extends State<BlockAndReportDialog> {
                     SizedBox(height: 32),
                     Row(
                       children: [
-                        Expanded(
-                            child: GradientButton(
-                                title: widget.leftButtonTitle,
-                                isGradient: false,
-                                onTap: () => Navigator.pop(context))),
-                        SizedBox(width: 20),
-                        Expanded(
-                          child: GradientButton(
-                              title: widget.rightButtonTitle, onTap: report),
-                        ),
+                        // Expanded(
+                        //     child: GradientButton(
+                        //         title: widget.leftButtonTitle,
+                        //         isGradient: false,
+                        //         onTap: () => Navigator.pop(context))),
+                        // SizedBox(width: 20),
+                        // Expanded(
+                        //   child: GradientButton(
+                        //       title: widget.rightButtonTitle, onTap: report),
+                        // ),
                       ],
                     ),
                   ],
@@ -142,9 +140,9 @@ class _CheckBoxWidgetState extends State<CheckBoxWidget> {
       //mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Theme(
-          data: ThemeData(unselectedWidgetColor: AppColors.lightGreen),
+          data: ThemeData(unselectedWidgetColor: AppColors.green),
           child: Checkbox(
-            activeColor: AppColors.lightGreen,
+            activeColor: AppColors.green,
             value: widget.checkValue,
             onChanged: (bool? value) {
               if (widget.checkValue == false) {
@@ -164,7 +162,7 @@ class _CheckBoxWidgetState extends State<CheckBoxWidget> {
         ),
         Expanded(
             child: Text(widget.checkText!,
-                style: TextStyle(fontSize: 14, color: AppColors.textColor))),
+                style: TextStyle(fontSize: 14, color: AppColors.text))),
       ],
     );
   }
