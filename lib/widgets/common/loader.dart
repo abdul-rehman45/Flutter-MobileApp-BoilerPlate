@@ -11,11 +11,10 @@ class Loader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        decoration:
-            const BoxDecoration(shape: BoxShape.circle, color: AppColors.white),
+        decoration: const BoxDecoration(shape: BoxShape.circle, color: white),
         padding: EdgeInsets.all(10.sp),
         child: LoadingAnimationWidget.threeArchedCircle(
-          color: AppColors.primary,
+          color: primary,
           size: 20.sp,
         ),
       ),

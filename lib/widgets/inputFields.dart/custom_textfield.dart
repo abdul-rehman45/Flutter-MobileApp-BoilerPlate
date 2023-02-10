@@ -47,7 +47,7 @@ class CustomTextField extends StatelessWidget {
                 child: Text(
                   "$title",
                   style: Helper.textStyle(
-                      color: AppColors.textLightGrey,
+                      color: textLightGrey,
                       fontSize: 12,
                       fontWeight: FontWeight.w400),
                 ),
@@ -64,9 +64,9 @@ class CustomTextField extends StatelessWidget {
           onChanged: onChanged,
           onTap: onTap,
           onFieldSubmitted: onFieldSubmitted,
-          style: Helper.textStyle(fontSize: 14, color: AppColors.textLightGrey),
+          style: Helper.textStyle(fontSize: 14, color: textLightGrey),
           decoration: InputDecoration(
-            fillColor: fillColor ?? AppColors.tfbgFillColor,
+            fillColor: fillColor ?? tfbgFillColor,
             filled: true,
             hintText: hintText,
             prefixIcon: prefixIcon == null
@@ -90,7 +90,7 @@ class CustomTextField extends StatelessWidget {
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 16.sp, vertical: 8.sp),
             hintStyle: Helper.textStyle(
-              color: AppColors.tfTextHintColor,
+              color: tfTextHintColor,
               fontSize: 12,
             ),
             enabledBorder: _setBorder(),
@@ -107,8 +107,7 @@ class CustomTextField extends StatelessWidget {
   InputBorder _setBorder({Color? color}) {
     return OutlineInputBorder(
       borderRadius: Helper.borderRadius(radius: 8),
-      borderSide:
-          Helper.borderSide(color: color ?? borderColor ?? AppColors.primary),
+      borderSide: Helper.borderSide(color: color ?? borderColor ?? primary),
     );
   }
 

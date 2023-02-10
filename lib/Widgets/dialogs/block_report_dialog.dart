@@ -48,7 +48,7 @@ class _BlockAndReportDialogState extends State<BlockAndReportDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: AppColors.scaffold,
+      backgroundColor: scaffold,
       insetPadding: EdgeInsets.all(16),
       contentPadding: EdgeInsets.fromLTRB(20, 40, 20, 40),
       shape: RoundedRectangleBorder(
@@ -69,9 +69,7 @@ class _BlockAndReportDialogState extends State<BlockAndReportDialog> {
                 Text(
                   "Are you sure?\nTell us why",
                   style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14,
-                      color: AppColors.text),
+                      fontWeight: FontWeight.w600, fontSize: 14, color: text),
                   textAlign: TextAlign.center,
                 ),
                 CheckBoxWidget(
@@ -140,9 +138,9 @@ class _CheckBoxWidgetState extends State<CheckBoxWidget> {
       //mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Theme(
-          data: ThemeData(unselectedWidgetColor: AppColors.green),
+          data: ThemeData(unselectedWidgetColor: green),
           child: Checkbox(
-            activeColor: AppColors.green,
+            activeColor: green,
             value: widget.checkValue,
             onChanged: (bool? value) {
               if (widget.checkValue == false) {
@@ -162,7 +160,7 @@ class _CheckBoxWidgetState extends State<CheckBoxWidget> {
         ),
         Expanded(
             child: Text(widget.checkText!,
-                style: TextStyle(fontSize: 14, color: AppColors.text))),
+                style: TextStyle(fontSize: 14, color: text))),
       ],
     );
   }

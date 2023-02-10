@@ -30,7 +30,7 @@ class CustomDialog extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppColors.lightgrey),
+          border: Border.all(color: lightgrey),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,

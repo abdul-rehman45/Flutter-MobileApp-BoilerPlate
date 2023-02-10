@@ -31,10 +31,10 @@ class _CustomPopUpMenuState extends State<CustomPopUpMenu> {
       child: Center(
         child: PopupMenuButton(
           padding: EdgeInsets.zero,
-          color: AppColors.bgColor,
+          color: bgColor,
           icon: Icon(
             Icons.more_vert,
-            color: AppColors.bgColor,
+            color: bgColor,
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
@@ -57,8 +57,8 @@ class _CustomPopUpMenuState extends State<CustomPopUpMenu> {
                               width: 18,
                               fit: BoxFit.contain,
                               color: i == widget.popupItems!.length - 1
-                                  ? AppColors.primary
-                                  : AppColors.text,
+                                  ? primary
+                                  : text,
                             ),
                             SizedBox(width: 6),
                             Text(
@@ -66,8 +66,8 @@ class _CustomPopUpMenuState extends State<CustomPopUpMenu> {
                               style: Helper.textStyle(
                                 fontSize: 14,
                                 color: i == widget.popupItems!.length - 1
-                                    ? AppColors.primary
-                                    : AppColors.text,
+                                    ? primary
+                                    : text,
                               ),
                             ),
                             Spacer(),
@@ -86,7 +86,7 @@ class _CustomPopUpMenuState extends State<CustomPopUpMenu> {
                               Divider(
                                 height: 1,
                                 thickness: 1,
-                                color: AppColors.grey,
+                                color: grey,
                               ),
                             ],
                           ),

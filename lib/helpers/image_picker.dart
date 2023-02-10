@@ -60,9 +60,9 @@ class imagePickerHelper {
       uiSettings: [
         AndroidUiSettings(
           toolbarTitle: 'Cropper',
-          toolbarColor: AppColors.primary,
-          toolbarWidgetColor: AppColors.white,
-          activeControlsWidgetColor: AppColors.text,
+          toolbarColor: primary,
+          toolbarWidgetColor: white,
+          activeControlsWidgetColor: text,
           initAspectRatio: CropAspectRatioPreset.original,
           lockAspectRatio: false,
         ),

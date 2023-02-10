@@ -32,12 +32,12 @@ class CustomCheckBox extends StatelessWidget {
               child: Center(
                 child: Theme(
                   data: ThemeData(
-                    unselectedWidgetColor: AppColors.scaffold,
+                    unselectedWidgetColor: scaffold,
                   ),
                   child: Checkbox(
                     value: isCheck,
                     onChanged: onChanged,
-                    activeColor: AppColors.green,
+                    activeColor: green,
                     // checkColor: CommonColors.checkBoxColor,
                     materialTapTargetSize: MaterialTapTargetSize.padded,
                   ),

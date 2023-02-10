@@ -12,8 +12,8 @@ class CountCircle extends StatelessWidget {
     return Container(
       height: size,
       width: size,
-      decoration: BoxDecoration(
-        color: AppColors.bgColor,
+      decoration: const BoxDecoration(
+        color: bgColor,
         shape: BoxShape.circle,
       ),
       child: Center(

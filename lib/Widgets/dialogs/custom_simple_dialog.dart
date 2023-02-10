@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/assets.dart';
-import 'package:flutterproject/constant/colors.dart';
-import 'package:flutterproject/constant/globals.dart';
-import 'package:flutterproject/helpers/ui_helpers.dart';
+
 import 'package:get/get.dart';
 
 class CustomSimpleDialog extends StatelessWidget {

@@ -3,8 +3,8 @@ class AppGlobals {
   static const String appVersion = "1.0.0";
   static const String bundleId = "com.example.app_name"; // app bundle ID
 
-  static const String dollarSign = "\$";
-  static const String currency = "AED";
+  static const String currency =
+      "AED"; // currency if your app need any set it here
 
   static const String playStoreLink =
       "https://play.google.com/store/apps/details?id=$bundleId";

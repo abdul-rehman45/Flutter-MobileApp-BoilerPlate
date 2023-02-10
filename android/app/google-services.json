@@ -1,0 +1,78 @@
+{
+  "project_info": {
+    "project_number": "650972280879",
+    "project_id": "esr-app-aaca4",
+    "storage_bucket": "esr-app-aaca4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650972280879:android:f61c45c4a3131b17696eda",
+        "android_client_info": {
+          "package_name": "com.esr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650972280879-htjkqb2o0nen1dm63mj5vapmqulj5gke.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.esr",
+            "certificate_hash": "7110d5c0f4f80584691aab69957facad305f459e"
+          }
+        },
+        {
+          "client_id": "650972280879-o8not9nkctp9mcbqj0ttqqj7g9reks2n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.esr",
+            "certificate_hash": "c60f33a7ce17ade18b343cd0b41b6b7afe73b216"
+          }
+        },
+        {
+          "client_id": "650972280879-tsn44cht4ogqnoertv77n9ln3h3omu6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.esr",
+            "certificate_hash": "f2f82c8381955791144f4c4f567e6a1350954857"
+          }
+        },
+        {
+          "client_id": "650972280879-vv2vjkumk5r2fqf3i5c3na1lc4ov9r8a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.esr",
+            "certificate_hash": "7ec1514bb67f07dbd0276b14dcd9685cdd0bccf3"
+          }
+        },
+        {
+          "client_id": "650972280879-kqtm0qvkmmsree8p4gj3gagrh6ba82sk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD02L52qKcuDQjB5p_maQpZz08_hx7h8vo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650972280879-kqtm0qvkmmsree8p4gj3gagrh6ba82sk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "650972280879-aa57pe11hupa317il3sqdundjqo78vt4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.esr"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

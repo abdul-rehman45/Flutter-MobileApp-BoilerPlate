@@ -24,23 +24,23 @@ class Helper {
   }
 
   static Border border({double width = 1, Color? color}) {
-    return Border.all(width: width, color: color ?? AppColors.primary);
+    return Border.all(width: width, color: color ?? primary);
   }
 
   static BorderSide borderSide({double width = 1, Color? color}) {
-    return BorderSide(width: width, color: color ?? AppColors.tfBorder);
+    return BorderSide(width: width, color: color ?? tfBorder);
   }
 
   static List<BoxShadow> boxShadow({double blur = 5}) {
     return [
       BoxShadow(
-        color: AppColors.black.withOpacity(0.01),
+        color: black.withOpacity(0.01),
         offset: Offset(1.sp, 1.sp),
         spreadRadius: 1.sp,
         blurRadius: blur.sp,
       ),
       BoxShadow(
-        color: AppColors.black.withOpacity(0.01),
+        color: black.withOpacity(0.01),
         offset: Offset(-1.sp, -1.sp),
         spreadRadius: 1.sp,
         blurRadius: blur.sp,

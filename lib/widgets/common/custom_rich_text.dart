@@ -42,7 +42,7 @@ class CustomRichText extends StatelessWidget {
                   }
                 },
               text: linkTitle,
-              style: Helper.textStyle(fontSize: 14, color: AppColors.green)
+              style: Helper.textStyle(fontSize: 14, color: green)
                   .copyWith(decoration: TextDecoration.underline))
         ],
       ),
