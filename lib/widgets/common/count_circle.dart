@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/colors.dart';
-import 'package:flutterproject/helpers/ui_helpers.dart';
+
+import '../../constants/colors.dart';
+import '../../helpers/ui_helpers.dart';
+
 
 class CountCircle extends StatelessWidget {
   CountCircle({Key? key, this.size = 25, this.count}) : super(key: key);

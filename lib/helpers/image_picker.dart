@@ -1,11 +1,12 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/colors.dart';
-import 'package:flutterproject/helpers/permission_handler.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import '../constants/colors.dart';
+import 'permission_handler.dart';
+
 
 class imagePickerHelper {
   static Future<File?> pickImage({required bool isCamera}) async {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/Constant/colors.dart';
+
 import 'package:sizer/sizer.dart';
+
+import '../../constants/colors.dart';
 
 class CustomDivider extends StatelessWidget {
   const CustomDivider({super.key, this.color, this.thickness, this.height});

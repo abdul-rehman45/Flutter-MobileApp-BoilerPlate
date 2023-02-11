@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/colors.dart';
-import 'package:flutterproject/helpers/ui_helpers.dart';
+
+
+import '../../constants/colors.dart';
+import '../../helpers/ui_helpers.dart';
+
 
 class CustomSearchBar extends StatelessWidget {
   final Function(String)? onChangeFunction;

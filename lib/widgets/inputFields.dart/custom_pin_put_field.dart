@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/colors.dart';
+
 import 'package:pinput/pinput.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../constants/colors.dart';
 
 class PinPutField extends StatelessWidget {
   PinPutField(

@@ -1,9 +1,10 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/colors.dart';
-import 'package:flutterproject/helpers/ui_helpers.dart';
+
 import 'package:get/get.dart';
 import 'package:overlay_support/overlay_support.dart';
+
+import '../../../helpers/ui_helpers.dart';
 
 class NotificationRegister {
   FirebaseMessaging messaging = FirebaseMessaging.instance;

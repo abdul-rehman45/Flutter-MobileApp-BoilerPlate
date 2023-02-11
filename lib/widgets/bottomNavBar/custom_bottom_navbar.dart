@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/Constant/texts.dart';
-import 'package:flutterproject/constant/assets.dart';
-import 'package:flutterproject/constant/colors.dart';
-import 'package:flutterproject/helpers/ui_helpers.dart';
+
 
 import 'package:sizer/sizer.dart';
 
-import '../../constant/texts.dart';
+import '../../constants/assets.dart';
+import '../../constants/colors.dart';
+import '../../helpers/ui_helpers.dart';
+
+
 
 class CustomBottomNavbar extends StatelessWidget {
   const CustomBottomNavbar({super.key, this.onChanged, this.index = 0});

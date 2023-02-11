@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/assets.dart';
-import 'package:flutterproject/constant/colors.dart';
-import 'package:flutterproject/constant/globals.dart';
+
+import '../../../constants/assets.dart';
+import '../../../constants/colors.dart';
+
 
 class Splash extends StatefulWidget {
   const Splash({this.backgroundimage, Key? key}) : super(key: key);

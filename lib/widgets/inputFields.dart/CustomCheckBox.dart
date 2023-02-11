@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/colors.dart';
-import 'package:flutterproject/widgets/common/custom_rich_text.dart';
+
+import '../../constants/colors.dart';
+import '../common/custom_rich_text.dart';
+
 
 class CustomCheckBox extends StatelessWidget {
   const CustomCheckBox(

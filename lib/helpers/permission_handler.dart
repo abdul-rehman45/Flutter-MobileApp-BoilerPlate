@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutterproject/widgets/dialogs/custom_dialog.dart';
+
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import '../widgets/dialogs/custom_dialog.dart';
 
 class PermissionHndler {
   static Future<bool> permission({required Permission permission}) async {

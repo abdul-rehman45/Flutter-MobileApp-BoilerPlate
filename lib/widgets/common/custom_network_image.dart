@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/assets.dart';
-import 'package:flutterproject/helpers/ui_helpers.dart';
+
 
 import 'package:sizer/sizer.dart';
+
+import '../../constants/assets.dart';
+import '../../helpers/ui_helpers.dart';
 
 class CustomNetworkImage extends StatelessWidget {
   const CustomNetworkImage({

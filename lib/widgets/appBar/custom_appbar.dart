@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../constant/assets.dart';
-import '../../constant/colors.dart';
+import '../../constants/assets.dart';
+import '../../constants/colors.dart';
 import '../../helpers/ui_helpers.dart';
 import '../common/custom_asset_image.dart';
 

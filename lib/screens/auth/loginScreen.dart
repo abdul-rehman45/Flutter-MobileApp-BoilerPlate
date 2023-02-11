@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/assets.dart';
-import 'package:flutterproject/constant/colors.dart';
-import 'package:flutterproject/helpers/ui_helpers.dart';
-import 'package:flutterproject/widgets/common/custom_button.dart';
-import 'package:flutterproject/widgets/common/custom_rich_text.dart';
-import 'package:flutterproject/widgets/inputFields.dart/custom_textfield.dart';
+
+import '../../constants/colors.dart';
+import '../../helpers/ui_helpers.dart';
+import '../../widgets/common/custom_button.dart';
+import '../../widgets/common/custom_rich_text.dart';
+import '../../widgets/inputFields.dart/custom_textfield.dart';
+
+
+
+
+
 
 class SignIn extends StatefulWidget {
   SignIn({Key? key}) : super(key: key);

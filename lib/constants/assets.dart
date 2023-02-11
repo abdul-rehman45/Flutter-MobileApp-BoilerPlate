@@ -20,3 +20,6 @@ const String gridIcon = 'assets/icons/grid.png';
 const String gridOutlineIcon = 'assets/icons/nvaBar/gridOutline.png';
 const String avatarOutlineIcon = 'assets/icons/nvaBar/avatarOutline.png';
 const String favoriteOutlineIcon = 'assets/icons/nvaBar/favoriteOutline.png';
+
+// comman
+const String backIcon = "assets/icons/backArrow.png";

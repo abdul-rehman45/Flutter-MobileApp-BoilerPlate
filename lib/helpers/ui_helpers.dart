@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/colors.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
+
+import '../constants/colors.dart';
 
 class Helper {
   static TextStyle textStyle(

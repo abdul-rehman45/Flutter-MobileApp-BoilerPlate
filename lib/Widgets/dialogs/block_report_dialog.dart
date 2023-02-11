@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/colors.dart';
+
+import '../../constants/colors.dart';
+
 
 class BlockAndReportDialog extends StatefulWidget {
   final String leftButtonTitle, rightButtonTitle;

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/colors.dart';
-import 'package:flutterproject/helpers/ui_helpers.dart';
+
 import 'package:sizer/sizer.dart';
+
+
+import '../../constants/colors.dart';
+import '../../helpers/ui_helpers.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({

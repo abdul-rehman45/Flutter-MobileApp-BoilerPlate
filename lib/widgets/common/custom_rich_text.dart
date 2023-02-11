@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterproject/constant/colors.dart';
-import 'package:flutterproject/helpers/ui_helpers.dart';
+
+import '../../constants/colors.dart';
+import '../../helpers/ui_helpers.dart';
+
 
 class CustomRichText extends StatelessWidget {
   const CustomRichText(
