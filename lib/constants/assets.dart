@@ -22,4 +22,8 @@ const String avatarOutlineIcon = 'assets/icons/nvaBar/avatarOutline.png';
 const String favoriteOutlineIcon = 'assets/icons/nvaBar/favoriteOutline.png';
 
 // comman
+<<<<<<< Updated upstream:lib/constants/assets.dart
 const String backIcon = "assets/icons/backArrow.png";
+=======
+const String backIcon = 'assets/icons/backArrow.png';
+>>>>>>> Stashed changes:lib/constant/assets.dart
