@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutterproject/helpers/helpers.dart';
 import '../../constants/colors.dart';
-import '../../helpers/ui_helpers.dart';
-
 
 class CountCircle extends StatelessWidget {
-  CountCircle({Key? key, this.size = 25, this.count}) : super(key: key);
+  const CountCircle({Key? key, this.size = 25, this.count}) : super(key: key);
   final double size;
-  int? count;
+  final int? count;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +13,7 @@ class CountCircle extends StatelessWidget {
       height: size,
       width: size,
       decoration: const BoxDecoration(
-        color: bgColor,
+        color: AppColors.bgColor,
         shape: BoxShape.circle,
       ),
       child: Center(

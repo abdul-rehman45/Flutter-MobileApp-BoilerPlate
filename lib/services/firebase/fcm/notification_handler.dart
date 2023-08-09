@@ -1,10 +1,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
+import 'package:flutterproject/helpers/helpers.dart';
 import 'package:overlay_support/overlay_support.dart';
-
-import '../../../helpers/ui_helpers.dart';
 
 class NotificationRegister {
   FirebaseMessaging messaging = FirebaseMessaging.instance;
@@ -12,6 +9,7 @@ class NotificationRegister {
   late Map messageData;
 
   Future<void> registerNotification() async {
+    // ignore: unused_local_variable
     NotificationSettings settings = await messaging.requestPermission(
       alert: true,
       sound: true,
@@ -57,8 +55,9 @@ class NotificationRegister {
             message.notification!.title ?? notification.dataTitle ?? '';
         String msgBody =
             message.notification!.body ?? notification.dataBody ?? '';
-        String imgUrl = notification.image_url ?? '';
-        //Get.put(DashboardController()).notificationCount.value++;
+        // String imgUrl = notification.image_url ?? '';
+
+        // ignore: unused_local_variable
         bool? dismissnotification = false;
 
         // show a notification at top of screen.

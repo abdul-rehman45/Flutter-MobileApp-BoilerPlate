@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutterproject/helpers/helpers.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import '../../constants/assets.dart';
 import '../../constants/colors.dart';
-import '../../helpers/ui_helpers.dart';
 import '../common/custom_asset_image.dart';
 
-class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
+// ignore: must_be_immutable
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   CustomAppBar(
       {super.key,
       this.title,
@@ -91,7 +92,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
                   child: Padding(
                     padding: EdgeInsets.all(5.sp),
                     child: const CustomAssetImage(
-                      image: backIcon,
+                      image: AppIcons.backIcon,
                     ),
                   ),
                 ),
@@ -102,7 +103,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
               title ?? '',
               style: Helper.textStyle(
                 fontSize: 18,
-                color: primary,
+                color: AppColors.primary,
                 fontWeight: FontWeight.w500,
               ),
             ),

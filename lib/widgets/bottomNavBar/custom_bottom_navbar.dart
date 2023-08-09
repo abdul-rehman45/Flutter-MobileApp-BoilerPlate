@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:flutterproject/helpers/helpers.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../constants/assets.dart';
 import '../../constants/colors.dart';
-import '../../helpers/ui_helpers.dart';
-
-
 
 class CustomBottomNavbar extends StatelessWidget {
   const CustomBottomNavbar({super.key, this.onChanged, this.index = 0});
@@ -23,42 +18,42 @@ class CustomBottomNavbar extends StatelessWidget {
         labelTextStyle: MaterialStateProperty.all(
           Helper.textStyle(
             fontSize: 10,
-            color: textLightGrey,
+            color: AppColors.textLightGrey,
           ),
         ),
       ),
       child: NavigationBar(
         height: 60.sp,
         elevation: 6.sp,
-        backgroundColor: white,
+        backgroundColor: AppColors.white,
         animationDuration: const Duration(milliseconds: 600),
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         selectedIndex: index,
         onDestinationSelected: onChanged,
         destinations: [
           _destinationItem(
-            icon: homeOutlineIcon,
-            selectedIcon: homeIcon,
+            icon: AppIcons.homeOutlineIcon,
+            selectedIcon: AppIcons.homeIcon,
             //label: home,
           ),
           _destinationItem(
-            icon: favoriteOutlineIcon,
-            selectedIcon: favoriteIcon,
+            icon: AppIcons.favoriteOutlineIcon,
+            selectedIcon: AppIcons.favoriteIcon,
             // label: favorites,
           ),
           _destinationItem(
-            icon: gridOutlineIcon,
-            selectedIcon: gridIcon,
+            icon: AppIcons.gridOutlineIcon,
+            selectedIcon: AppIcons.gridIcon,
             // label: AppTexts.categories,
           ),
           _destinationItem(
-            icon: cartOutlineIcon,
-            selectedIcon: cartIcon,
+            icon: AppIcons.cartOutlineIcon,
+            selectedIcon: AppIcons.cartIcon,
             // label: AppTexts.cart,
           ),
           _destinationItem(
-            icon: avatarOutlineIcon,
-            selectedIcon: avatarIcon,
+            icon: AppIcons.avatarOutlineIcon,
+            selectedIcon: AppIcons.avatarIcon,
             // label: AppTexts.account,
           ),
         ],

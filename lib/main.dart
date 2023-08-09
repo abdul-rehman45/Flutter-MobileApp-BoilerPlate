@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:sizer/sizer.dart';
 
-import 'screens/startUp/splash/splashScreen.dart';
+import 'pages/startUp/splash/splashScreen.dart';
 
 void main() {
   runApp(const MyApp());

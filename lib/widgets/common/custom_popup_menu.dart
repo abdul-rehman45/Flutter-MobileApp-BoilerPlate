@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutterproject/widgets/common/count_circle.dart';
 import '../../constants/colors.dart';
-import '../../helpers/ui_helpers.dart';
+import '../../helpers/helpers.dart';
 
 class CustomPopUpMenu extends StatefulWidget {
-  CustomPopUpMenu({
+  const CustomPopUpMenu({
     Key? key,
 
     // this.cartCount,
@@ -14,8 +14,8 @@ class CustomPopUpMenu extends StatefulWidget {
   }) : super(key: key);
   // int? cartCount, wishListCount;
 
-  Function(Object?)? onSelected;
-  List? popupItems;
+  final Function(Object?)? onSelected;
+  final List? popupItems;
 
   @override
   _CustomPopUpMenuState createState() => _CustomPopUpMenuState();
@@ -30,10 +30,10 @@ class _CustomPopUpMenuState extends State<CustomPopUpMenu> {
       child: Center(
         child: PopupMenuButton(
           padding: EdgeInsets.zero,
-          color: bgColor,
+          color: AppColors.bgColor,
           icon: Icon(
             Icons.more_vert,
-            color: bgColor,
+            color: AppColors.bgColor,
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
@@ -56,8 +56,8 @@ class _CustomPopUpMenuState extends State<CustomPopUpMenu> {
                               width: 18,
                               fit: BoxFit.contain,
                               color: i == widget.popupItems!.length - 1
-                                  ? primary
-                                  : text,
+                                  ? AppColors.primary
+                                  : AppColors.text,
                             ),
                             SizedBox(width: 6),
                             Text(
@@ -65,8 +65,8 @@ class _CustomPopUpMenuState extends State<CustomPopUpMenu> {
                               style: Helper.textStyle(
                                 fontSize: 14,
                                 color: i == widget.popupItems!.length - 1
-                                    ? primary
-                                    : text,
+                                    ? AppColors.primary
+                                    : AppColors.text,
                               ),
                             ),
                             Spacer(),
@@ -85,7 +85,7 @@ class _CustomPopUpMenuState extends State<CustomPopUpMenu> {
                               Divider(
                                 height: 1,
                                 thickness: 1,
-                                color: grey,
+                                color: AppColors.grey,
                               ),
                             ],
                           ),

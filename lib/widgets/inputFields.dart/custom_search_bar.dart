@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-
 import '../../constants/colors.dart';
-import '../../helpers/ui_helpers.dart';
-
+import '../../helpers/helpers.dart';
 
 class CustomSearchBar extends StatelessWidget {
   final Function(String)? onChangeFunction;
@@ -18,13 +15,13 @@ class CustomSearchBar extends StatelessWidget {
       // padding: EdgeInsets.symmetric(horizontal: AppGlobals.screenWidth * 0.1),
       child: CupertinoSearchTextField(
         controller: controller,
-        itemColor: green,
+        itemColor: AppColors.green,
         decoration: BoxDecoration(
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(22),
-          border: Border.all(color: bgColor),
+          border: Border.all(color: AppColors.bgColor),
         ),
-        style: Helper.textStyle(fontSize: 14, color: grey),
+        style: Helper.textStyle(fontSize: 14, color: AppColors.grey),
         padding: EdgeInsets.fromLTRB(22, 10, 12, 10),
         onChanged: onChangeFunction,
       ),

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:sizer/sizer.dart';
-
-
 import '../../constants/colors.dart';
-import '../../helpers/ui_helpers.dart';
+import '../../helpers/helpers.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -50,7 +47,7 @@ class CustomTextField extends StatelessWidget {
                 child: Text(
                   "$title",
                   style: Helper.textStyle(
-                      color: textLightGrey,
+                      color: AppColors.textLightGrey,
                       fontSize: 12,
                       fontWeight: FontWeight.w400),
                 ),
@@ -67,9 +64,9 @@ class CustomTextField extends StatelessWidget {
           onChanged: onChanged,
           onTap: onTap,
           onFieldSubmitted: onFieldSubmitted,
-          style: Helper.textStyle(fontSize: 14, color: textLightGrey),
+          style: Helper.textStyle(fontSize: 14, color: AppColors.textLightGrey),
           decoration: InputDecoration(
-            fillColor: fillColor ?? tfbgFillColor,
+            fillColor: fillColor ?? AppColors.tfbgFillColor,
             filled: true,
             hintText: hintText,
             prefixIcon: prefixIcon == null
@@ -93,7 +90,7 @@ class CustomTextField extends StatelessWidget {
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 16.sp, vertical: 8.sp),
             hintStyle: Helper.textStyle(
-              color: tfTextHintColor,
+              color: AppColors.tfTextHintColor,
               fontSize: 12,
             ),
             enabledBorder: _setBorder(),
@@ -110,7 +107,8 @@ class CustomTextField extends StatelessWidget {
   InputBorder _setBorder({Color? color}) {
     return OutlineInputBorder(
       borderRadius: Helper.borderRadius(radius: 8),
-      borderSide: Helper.borderSide(color: color ?? borderColor ?? primary),
+      borderSide:
+          Helper.borderSide(color: color ?? borderColor ?? AppColors.primary),
     );
   }
 

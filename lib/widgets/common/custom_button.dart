@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-
-
 import 'package:sizer/sizer.dart';
-
 import '../../constants/colors.dart';
-import '../../helpers/ui_helpers.dart';
+import '../../helpers/helpers.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
@@ -77,12 +74,12 @@ class CustomElevatedButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         elevation: elevation,
         minimumSize: width != null ? buttonSize : null,
-        foregroundColor: primary,
+        foregroundColor: AppColors.primary,
         backgroundColor: !isActive
             ? Colors.grey
             //AppColors.lightGrey
             : isFilled
-                ? bgColor ?? primary
+                ? bgColor ?? AppColors.primary
                 : Colors.white,
         disabledBackgroundColor: Colors.grey,
         // AppColors.lightGrey,
@@ -90,7 +87,7 @@ class CustomElevatedButton extends StatelessWidget {
           borderRadius: Helper.borderRadius(radius: radius.sp),
           side: !isActive || isFilled
               ? BorderSide.none
-              : Helper.borderSide(color: borderColor ?? primary),
+              : Helper.borderSide(color: borderColor ?? AppColors.primary),
         ),
 
         visualDensity: const VisualDensity(vertical: -4),
@@ -107,7 +104,7 @@ class CustomElevatedButton extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 color: isFilled && isActive
                     ? activeTextColor ?? Colors.white
-                    : primary,
+                    : AppColors.primary,
               ),
             ),
       ),

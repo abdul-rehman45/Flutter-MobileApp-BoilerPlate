@@ -14,7 +14,7 @@ class CustomDivider extends StatelessWidget {
     return Divider(
       height: height ?? 0,
       thickness: thickness ?? 0.3.sp,
-      color: color ?? whiteShade,
+      color: color ?? AppColors.whiteShade,
     );
   }
 }

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import '../common/custom_rich_text.dart';
 
-
 class CustomCheckBox extends StatelessWidget {
   const CustomCheckBox(
       {Key? key,
@@ -34,12 +33,12 @@ class CustomCheckBox extends StatelessWidget {
               child: Center(
                 child: Theme(
                   data: ThemeData(
-                    unselectedWidgetColor: scaffold,
+                    unselectedWidgetColor: AppColors.scaffold,
                   ),
                   child: Checkbox(
                     value: isCheck,
                     onChanged: onChanged,
-                    activeColor: green,
+                    activeColor: AppColors.green,
                     // checkColor: CommonColors.checkBoxColor,
                     materialTapTargetSize: MaterialTapTargetSize.padded,
                   ),

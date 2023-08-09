@@ -1,3 +1,3 @@
 class AppUrls {
-  static const String baseUrl = 'http://';
+  static const baseUrl = "";
 }

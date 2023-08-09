@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-
-
 import 'package:sizer/sizer.dart';
-
 import '../../constants/assets.dart';
-import '../../helpers/ui_helpers.dart';
+import '../../helpers/helpers.dart';
 
 class CustomNetworkImage extends StatelessWidget {
   const CustomNetworkImage({
@@ -31,7 +28,7 @@ class CustomNetworkImage extends StatelessWidget {
               borderRadius: Helper.borderRadius(radius: radius),
             ),
             child: Image.network(
-              image ?? placeholderUrlImg,
+              image ?? AppImages.placeholderUrlImg,
               fit: fit,
               width: width.sp,
               height: height.sp,
@@ -56,7 +53,7 @@ class CustomNetworkImage extends StatelessWidget {
         borderRadius: Helper.borderRadius(radius: radius),
       ),
       child: Image.asset(
-        image ?? placeHolderImg,
+        image ?? AppImages.placeHolderImg,
         fit: fit,
         width: width.sp,
         height: height.sp,

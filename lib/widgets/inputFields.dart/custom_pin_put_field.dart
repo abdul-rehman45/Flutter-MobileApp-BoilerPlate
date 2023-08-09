@@ -36,13 +36,15 @@ class PinPutField extends StatelessWidget {
     width: 18.w,
     height: 18.w,
     textStyle: TextStyle(
-        fontSize: 18.sp, color: tfTextColor, fontWeight: FontWeight.w600),
+        fontSize: 18.sp,
+        color: AppColors.tfTextColor,
+        fontWeight: FontWeight.w600),
     decoration: BoxDecoration(
-      border: Border.all(color: primary),
+      border: Border.all(color: AppColors.primary),
       borderRadius: BorderRadius.circular(10),
       color: Colors.white,
     ),
   );
-  final _focusedPinTheme =
-      _defaultPinTheme.copyBorderWith(border: Border.all(color: primary));
+  final _focusedPinTheme = _defaultPinTheme.copyBorderWith(
+      border: Border.all(color: AppColors.primary));
 }

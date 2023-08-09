@@ -2,8 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
-import '../../helpers/ui_helpers.dart';
-
+import '../../helpers/helpers.dart';
 
 class CustomPhotoAvatar extends StatelessWidget {
   const CustomPhotoAvatar({
@@ -39,15 +38,16 @@ class CustomPhotoAvatar extends StatelessWidget {
                 width: 70,
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border:
-                        isSelected ? Border.all(color: green, width: 4) : null),
+                    border: isSelected
+                        ? Border.all(color: AppColors.green, width: 4)
+                        : null),
                 child: Center(
                   child: addImageShowCall == true && file != null
                       ? InkWell(
                           onTap: onEditTap,
                           child: CircleAvatar(
                             radius: 30,
-                            backgroundColor: bgColor,
+                            backgroundColor: AppColors.bgColor,
                             backgroundImage: FileImage(file!),
                           ),
                         )
@@ -55,14 +55,14 @@ class CustomPhotoAvatar extends StatelessWidget {
                           ? assetsCall == true
                               ? CircleAvatar(
                                   radius: 30,
-                                  backgroundColor: bgColor,
+                                  backgroundColor: AppColors.bgColor,
                                   backgroundImage: AssetImage(iconPath!),
                                 )
                               : InkWell(
                                   onTap: onEditTap,
                                   child: CircleAvatar(
                                     radius: 30,
-                                    backgroundColor: bgColor,
+                                    backgroundColor: AppColors.bgColor,
                                     backgroundImage: NetworkImage(iconPath!),
                                   ),
                                 )
@@ -70,7 +70,7 @@ class CustomPhotoAvatar extends StatelessWidget {
                               onTap: onEditTap,
                               child: CircleAvatar(
                                 radius: 30,
-                                backgroundColor: bgColor,
+                                backgroundColor: AppColors.bgColor,
                                 // child: Image.asset(
                                 //   AppIcons.appLogo,
                                 //   height: 25,
@@ -115,7 +115,7 @@ class CustomPhotoAvatar extends StatelessWidget {
 }
 
 class ImageAvatar extends StatelessWidget {
-  ImageAvatar({
+  const ImageAvatar({
     Key? key,
     this.image,
     this.name,
@@ -130,7 +130,7 @@ class ImageAvatar extends StatelessWidget {
     this.isOnline = false,
   }) : super(key: key);
   final double size;
-  String? image, name;
+  final String? image, name;
   final VoidCallback? iconTap, onImageTap;
 
   final bool isNetwork;
@@ -159,7 +159,7 @@ class ImageAvatar extends StatelessWidget {
                           height: size,
                           width: size,
                           decoration: BoxDecoration(
-                            color: bgColor,
+                            color: AppColors.bgColor,
                             //color: Color.alphaBlend(AppColors.bgColor, Colors.grey),
                             shape: BoxShape.circle,
                             image: DecorationImage(
@@ -173,7 +173,7 @@ class ImageAvatar extends StatelessWidget {
                               fit: BoxFit.cover,
                             ),
                             border: isSelected
-                                ? Border.all(color: green, width: 4)
+                                ? Border.all(color: AppColors.green, width: 4)
                                 : null,
                           ),
                           // child: image != null
@@ -182,7 +182,7 @@ class ImageAvatar extends StatelessWidget {
                         )
                       : CircleAvatar(
                           radius: size / 2,
-                          backgroundColor: bgColor,
+                          backgroundColor: AppColors.bgColor,
                           // child: Image.asset(
                           //   AppIcons.appLogo,
                           //   //height: 25,
@@ -216,7 +216,7 @@ class ImageAvatar extends StatelessWidget {
                       height: 25,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: bgColor,
+                        color: AppColors.bgColor,
                       ),
                       child: Center(
                         child: Icon(
@@ -243,7 +243,7 @@ class ImageAvatar extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: isOnline ? bgColor : bgColor,
+                      color: isOnline ? AppColors.bgColor : AppColors.bgColor,
                     ),
                   ),
                 ),
@@ -262,7 +262,9 @@ class ImageAvatar extends StatelessWidget {
                 maxLines: 2,
                 textAlign: TextAlign.center,
                 style: Helper.textStyle(
-                    fontSize: 14, color: text, fontWeight: FontWeight.w400),
+                    fontSize: 14,
+                    color: AppColors.text,
+                    fontWeight: FontWeight.w400),
               ),
             ),
           ),

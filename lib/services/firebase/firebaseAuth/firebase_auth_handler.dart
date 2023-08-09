@@ -1,12 +1,9 @@
-import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:the_apple_sign_in/the_apple_sign_in.dart';
-
 import 'auth.dart';
 
 class AuthFireBase {
@@ -17,8 +14,10 @@ class AuthFireBase {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   User? user;
+  // ignore: unused_field
   bool _loggedIn = false;
 
+  // ignore: prefer_final_fields, unused_field
   int _counter = 0;
   Stream<User?> get currentUser => authService.currentUser;
 
@@ -135,8 +134,8 @@ class AuthFireBase {
         // Store user ID
         await FlutterSecureStorage()
             .write(key: "userId", value: result.credential?.user);
-        print(result);
-        print(result.credential?.email);
+        debugPrint(result.toString());
+        debugPrint(result.credential?.email);
         // globals.appleuserdata = result.credential;
         // globals.email = result.credential.email;
         // globals.fullname = result.credential.fullName.toString();
@@ -145,49 +144,46 @@ class AuthFireBase {
         // globals.firsttime = false;
         return islogin = true;
 
-        break;
-
       case AuthorizationStatus.error:
-        print("Sign in failed: ${result.error?.localizedDescription}");
+        debugPrint("Sign in failed: ${result.error?.localizedDescription}");
 
         return islogin;
-        break;
 
       case AuthorizationStatus.cancelled:
-        print('User cancelled');
+        debugPrint('User cancelled');
         return islogin;
       // break;
     }
   }
 
   void checkLoggedInState() async {
-    final userId = await FlutterSecureStorage().read(key: "userId");
+    final userId = await const FlutterSecureStorage().read(key: "userId");
     if (userId == null) {
-      print("No stored user ID");
+      debugPrint("No stored user ID");
       return;
     }
 
     final credentialState = await TheAppleSignIn.getCredentialState(userId);
     switch (credentialState.status) {
       case CredentialStatus.authorized:
-        print("getCredentialState returned authorized");
+        debugPrint("getCredentialState returned authorized");
         break;
 
       case CredentialStatus.error:
-        print(
+        debugPrint(
             "getCredentialState returned an error: ${credentialState.error?.localizedDescription}");
         break;
 
       case CredentialStatus.revoked:
-        print("getCredentialState returned revoked");
+        debugPrint("getCredentialState returned revoked");
         break;
 
       case CredentialStatus.notFound:
-        print("getCredentialState returned not found");
+        debugPrint("getCredentialState returned not found");
         break;
 
       case CredentialStatus.transferred:
-        print("getCredentialState returned not transferred");
+        debugPrint("getCredentialState returned not transferred");
         break;
     }
   }
@@ -205,27 +201,28 @@ class AuthFireBase {
 
       user = (await _auth.signInWithCredential(credential)).user;
 
-      print("user id: ${user!.uid}");
-      print("user name: ${user!.displayName}");
-      print("user email: ${user!.email}");
-      print("USer LOggedIN! ");
+      debugPrint("user id: ${user!.uid}");
+      debugPrint("user name: ${user!.displayName}");
+      debugPrint("user email: ${user!.email}");
+      debugPrint("USer LOggedIN! ");
 
       _loggedIn = true;
 
       return user!;
     } on Exception catch (exception) {
       // only executed if error is of type Exception
-      print("$exception");
+      debugPrint("$exception");
     } catch (error) {
       // executed for errors of all types other than Exception
-      print("$error");
+      debugPrint("$error");
     }
+    return user;
   }
 
   signOut() async {
     await _googleSignIn.signOut();
     _loggedIn = false;
-    print("Logout!");
+    debugPrint("Logout!");
   }
 
   Future<User?> registerWithEmail(String email, String password) async {

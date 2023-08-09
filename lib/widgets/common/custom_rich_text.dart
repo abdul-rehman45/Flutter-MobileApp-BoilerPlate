@@ -2,8 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
-import '../../helpers/ui_helpers.dart';
-
+import '../../helpers/helpers.dart';
 
 class CustomRichText extends StatelessWidget {
   const CustomRichText(
@@ -44,7 +43,7 @@ class CustomRichText extends StatelessWidget {
                   }
                 },
               text: linkTitle,
-              style: Helper.textStyle(fontSize: 14, color: green)
+              style: Helper.textStyle(fontSize: 14, color: AppColors.green)
                   .copyWith(decoration: TextDecoration.underline))
         ],
       ),

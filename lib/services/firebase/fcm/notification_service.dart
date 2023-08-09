@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:overlay_support/overlay_support.dart';
@@ -27,7 +26,6 @@ class NotificationService {
     // .then((value) {return token = value.body;});
 
     Map<String, String> data = {
-      'image': "",
       'chat': chat ?? 'no',
       'name': title ?? '',
       'content': body ?? '',
@@ -122,11 +120,9 @@ class NotificationService {
               print("parsedMessage: $parsedMessage");
 
               String msgTitle =
-                  "${notification.title ?? notification.dataTitle ?? ''}";
-              String msgBody =
-                  "${notification.body ?? notification.dataBody ?? ''}";
-              String image =
-                  "${notification.image ?? notification.dataBody ?? ''}";
+                  notification.title ?? notification.dataTitle ?? '';
+              String msgBody = notification.body ?? notification.dataBody ?? '';
+              String image = notification.image ?? notification.dataBody ?? '';
 
               print('in app notif data: $msgBody');
               // For displaying the notification as an overlay
@@ -194,11 +190,10 @@ class NotificationService {
               print("parsedMessage: $parsedMessage");
 
               String msgTitle =
-                  "${notification.title ?? notification.dataTitle ?? ''}";
-              String msgBody =
-                  "${notification.body ?? notification.dataBody ?? ''}";
+                  notification.title ?? notification.dataTitle ?? '';
+              String msgBody = notification.body ?? notification.dataBody ?? '';
 
-              print('bg app notif data: $msgBody');
+              debugPrint('bg app notif data: $msgTitle : $msgBody');
 
               notificationNavigation(parsedMessage);
             }
@@ -242,12 +237,12 @@ class NotificationService {
         );
       }
 
-      print("parsedMessage: $parsedMessage");
+      debugPrint("parsedMessage: $parsedMessage");
 
-      String msgTitle = "${notification.title ?? notification.dataTitle ?? ''}";
-      String msgBody = "${notification.body ?? notification.dataBody ?? ''}";
+      String msgTitle = notification.title ?? notification.dataTitle ?? '';
+      String msgBody = notification.body ?? notification.dataBody ?? '';
 
-      print('init app notif data: $msgBody');
+      debugPrint('init app notif data: $msgBody : $msgTitle');
 
       notificationNavigation(parsedMessage);
     }
@@ -293,18 +288,18 @@ Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     );
   }
 
-  print("parsedMessage: $parsedMessage");
+  debugPrint("parsedMessage: $parsedMessage");
 
-  String msgTitle = "${notification?.title ?? notification?.dataTitle ?? ''}";
-  String msgBody = "${notification?.body ?? notification?.dataBody ?? ''}";
-  print('bgs app notif data: $msgBody');
+  String msgTitle = notification?.title ?? notification?.dataTitle ?? '';
+  String msgBody = notification?.body ?? notification?.dataBody ?? '';
+  debugPrint('bgs app notif data: $msgBody : $msgTitle');
 
   notificationNavigation(parsedMessage);
 }
 
 // check and handle condition for navigation
 void notificationNavigation(Map<String, dynamic> data) {
-  print('tap data $data');
+  debugPrint('tap data $data');
   if (data["type"] == "chat") {
     // Get.to(ChatScreen(
     //   name: data["userName"],

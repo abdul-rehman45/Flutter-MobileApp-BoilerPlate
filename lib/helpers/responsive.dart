@@ -5,12 +5,8 @@ class Responsive extends StatelessWidget {
   final Widget? tablet;
   final Widget? desktop;
 
-  const Responsive({
-    Key? key,
-    this.mobile,
-    this.tablet,
-    this.desktop,
-  }) : super(key: key);
+  const Responsive({Key? key, this.mobile, this.tablet, this.desktop})
+      : super(key: key);
 
 // This size work fine on my design, maybe you need some customization depends on your design
   static const int largeScreenSize = 1366;
