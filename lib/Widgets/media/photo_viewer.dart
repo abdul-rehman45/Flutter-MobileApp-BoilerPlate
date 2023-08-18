@@ -1,8 +1,7 @@
-// import 'package:buddytobody/Constants/app_colors.dart';
-// import 'package:buddytobody/Utilities/utilities.dart';
 // import 'package:flutter/material.dart';
-// import 'package:photo_view/photo_view.dart';
-// import 'package:photo_view/photo_view_gallery.dart';
+// import 'package:flutterproject/helpers/helpers.dart';
+
+// import '../../constants/colors.dart';
 
 // class CustomPhotoView extends StatelessWidget {
 //   const CustomPhotoView({Key? key, required this.image, this.title})
@@ -13,17 +12,16 @@
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       appBar: AppBar(
-//         iconTheme: IconThemeData(color: AppColors.textColor),
+//         iconTheme: const IconThemeData(color: AppColors.text),
 //         leading: IconButton(
-//           icon: Icon(Icons.arrow_back_ios),
+//           icon: const Icon(Icons.arrow_back_ios),
 //           onPressed: () {
 //             Navigator.of(context, rootNavigator: true).pop();
 //           },
 //         ),
 //         title: Text(
 //           title ?? 'You',
-//           style: Utilities.setTextStyle(16,
-//               color: AppColors.textColor, fontWeight: FontWeight.w500),
+//           style: Helper.textStyle(),
 //         ),
 //         backgroundColor: AppColors.bgColor,
 //       ),

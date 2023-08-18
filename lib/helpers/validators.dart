@@ -1,35 +1,45 @@
-class Validators {
-  static RegExp alphaNum =
-      RegExp(r'\b(?:\d+[A-Za-z]|[A-Za-z]+\d)[a-zA-Z0-9]*\b');
-  static RegExp barcodeRex = RegExp(r'^(\d{4}|)[a-zA-Z\\^]{2,}\d{4,}$');
-  static RegExp barcodeDigitsRegex = RegExp(r'^(\d{4}-|)\d{9}$');
+import 'package:flutterproject/constants/texts.dart';
 
-  static String? validAlphaNum(String value) {
-    if (value.isEmpty) return "Please enter code";
-    bool isAlpha = alphaNum.hasMatch(value);
-    if (!isAlpha) return "Enter valid code!";
+class Validators {
+  static final RegExp emailRegExp = RegExp(
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+  static final RegExp passwordRegExp = RegExp(r'^[A-Za-z0-9]{4,}$');
+  static final RegExp addressRegExp = RegExp(r'^[#.0-9a-zA-Z\s,-]+$');
+  static final RegExp nameRegExp = RegExp(r'^[A-Za-z ]+$');
+  static final RegExp numberRegExp = RegExp(r'^\d{9,12}$');
+  static final RegExp otpRegExp = RegExp(r'^\d{4}$');
+
+  static String? validate(String? text,
+      {RegExp? regExp, String? msg, bool? allowEmpty = false}) {
+    text = (text ?? '').trim();
+    if (allowEmpty == false) {
+      if (text.isEmpty) {
+        return "${AppTexts.pleaseEnter} ${msg ?? AppTexts.something}";
+      }
+
+      if (regExp != null) {
+        bool? hasMatch = regExp.hasMatch(text);
+        if (hasMatch == false) {
+          return "${AppTexts.enterValid} ${msg ?? AppTexts.value}";
+        }
+      }
+    }
     return null;
   }
 
-  static String? validatePassword(value) => value!.isEmpty
-      ? "Password can not be empty"
-      : value.length < 8
-          ? "Password should be at least 8 digits long"
-          : !(RegExp(r'^(?=.*\d)').hasMatch(value))
-              ? "Password must conatain at least 1 digit,"
-              : null;
+  static String? confirmPassword(String? confirmPass, String? pass) {
+    confirmPass = (confirmPass ?? '').trim();
+    pass = (pass ?? '').trim();
 
-  static String? validateConfirmPassword(
-          String password, String confirmPassword) =>
-      confirmPassword.isEmpty
-          ? "Confirm Password can not be empty"
-          : password != confirmPassword
-              ? "Confirm Password does not match"
-              : null;
+    String? valid = validate(confirmPass,
+        msg: AppTexts.confirmPassword, regExp: Validators.passwordRegExp);
 
-  static String? validatePhoneNumber(value) => value!.isEmpty
-      ? "Phone number can not be empty"
-      : value.length != 11 || !RegExp(r'(^03[0-9]{9}$)').hasMatch(value)
-          ? "Invalid Phone number"
-          : null;
+    if (valid != null && pass.isNotEmpty) return valid;
+
+    if (pass == confirmPass) {
+      return null;
+    } else {
+      return AppTexts.confirmPasswordNotMatch;
+    }
+  }
 }

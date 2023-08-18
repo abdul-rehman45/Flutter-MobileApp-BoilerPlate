@@ -6,20 +6,14 @@ import 'package:flutterproject/backend/models/base_model.dart';
 import 'package:flutterproject/constants/globals.dart';
 import 'package:flutterproject/constants/texts.dart';
 import 'package:flutterproject/constants/url.dart';
-import 'package:flutterproject/helpers/logs.dart';
+import 'package:flutterproject/helpers/helpers.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
-const String POST = 'POST';
-const String GET = 'GET';
-const String DEL = 'DEL';
-const String PATCH = 'PATCH';
-const String PUT = 'PUT';
-const String UPDATE = "UPDATE";
-const String DELETE = "DELETE";
+enum RestMethods { POST, GET, PATCH, PUT, UPDATE, DELETE }
 
 Future api(
-  String method,
+  RestMethods method,
   String? url, {
   String? queryParam,
   var data,
@@ -44,7 +38,7 @@ Future api(
     Uri uri = Uri.parse('${AppUrls.baseUrl}$url');
     appLogs('$method Url: ${uri.path}');
     appLogs('Api Request Body $data');
-    Map<String, String> headers = _getHeaders(method, isJson: isJson);
+    Map<String, String> headers = _getHeaders(isJson: isJson);
     http.BaseRequest request;
     Object? jsonData;
     if (isJson) {
@@ -95,7 +89,7 @@ Future api(
   }
 }
 
-Map<String, String> _getHeaders(String? method, {bool isJson = false}) {
+Map<String, String> _getHeaders({bool isJson = false}) {
   Map<String, String> headers = {};
   String? token = "Bearer ${AppGlobals.user?.token}";
   appLogs("token: $token");
@@ -107,9 +101,9 @@ Map<String, String> _getHeaders(String? method, {bool isJson = false}) {
   return headers;
 }
 
-Future<MultipartRequest> multipartRequest(String method, Uri uri,
+Future<MultipartRequest> multipartRequest(RestMethods method, Uri uri,
     {var data, File? file, String? fileKey}) async {
-  var request = http.MultipartRequest(method, uri);
+  var request = http.MultipartRequest(method.name, uri);
   request.fields.addAll(data ?? {});
   if (file != null && file.path.isNotEmpty) {
     http.MultipartFile multipartFile =
@@ -119,8 +113,8 @@ Future<MultipartRequest> multipartRequest(String method, Uri uri,
   return request;
 }
 
-Future<Request> jsonRequest(String method, Uri uri, {var data}) async {
-  var request = http.Request(method, uri);
+Future<Request> jsonRequest(RestMethods method, Uri uri, {var data}) async {
+  var request = http.Request(method.name, uri);
   request.body = jsonEncode(data);
   return request;
 }
@@ -129,8 +123,8 @@ Future uploadImageApi(String url, {File? file}) async {
   try {
     CustomDialogs.showLoading();
     http.MultipartRequest? request =
-        http.MultipartRequest(PATCH, Uri.parse(url));
-    request.headers.addAll(_getHeaders(PATCH));
+        http.MultipartRequest(RestMethods.PATCH.name, Uri.parse(url));
+    request.headers.addAll(_getHeaders());
     if (file != null && file.path.isNotEmpty) {
       http.MultipartFile multipartFile =
           await http.MultipartFile.fromPath('profile_image', file.path);

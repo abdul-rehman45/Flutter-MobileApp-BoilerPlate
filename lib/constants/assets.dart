@@ -5,7 +5,6 @@ class AppImages {
   static const String placeHolderImg = 'assets/images/placeholder.png';
   static const String placeholderUrlImg =
       'https://cutewallpaper.org/24/image-placeholder-png/index-of-assetsimg.png';
-//}
 }
 
 //  --------Icons--------

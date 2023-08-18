@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 import '../constants/colors.dart';
+import '../constants/globals.dart';
 
 class Helper {
   static TextStyle textStyle(
@@ -129,4 +132,8 @@ class DateHelper {
     bool isValid = validTillDate.isAfter(now);
     return isValid;
   }
+}
+
+appLogs(String message) {
+  log("${AppGlobals.appName}: $message");
 }

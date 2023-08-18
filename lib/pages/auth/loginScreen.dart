@@ -1,159 +1,126 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutterproject/controllers/auth_controllers/login_controller.dart';
+import 'package:flutterproject/helpers/helpers.dart';
+import 'package:flutterproject/helpers/validators.dart';
+import 'package:get/get.dart';
+import '../../Widgets/buttons/custom_button.dart';
+import '../../Widgets/inputFields.dart/custom_inputfields.dart';
 import '../../constants/colors.dart';
-import '../../helpers/helpers.dart';
-import '../../widgets/common/custom_button.dart';
-import '../../widgets/common/custom_rich_text.dart';
-import '../../widgets/inputFields.dart/custom_textfield.dart';
+import '../../constants/texts.dart';
 
-class SignIn extends StatefulWidget {
-  SignIn({Key? key}) : super(key: key);
-
-  @override
-  State<SignIn> createState() => _SignInState();
-}
-
-class _SignInState extends State<SignIn> {
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-
-  bool _hidePassword = true;
+class SignIn extends StatelessWidget {
+  const SignIn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // backgroundColor: AppColors.bgColor,
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
-      body: Container(
-        height: double.infinity,
-        decoration: BoxDecoration(
-            // image: DecorationImage(
-            //   image: AssetImage(
-            //     AppImages.bg1,
-            //   ),
-            //   fit: BoxFit.fill,
-            // ),
-            ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    SizedBox(height: 30),
-                    Text(
-                      'Welcome back!',
-                      style: Helper.textStyle(
-                          fontSize: 24, fontWeight: FontWeight.w700),
+    return GetBuilder<LoginController>(
+        init: LoginController(),
+        builder: (controller) {
+          return Scaffold(
+            extendBodyBehindAppBar: true,
+            appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
+            body: Container(
+              height: double.infinity,
+              decoration: const BoxDecoration(),
+              child: SafeArea(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Form(
+                      key: controller.formkey,
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 30),
+                          const SizedBox(height: 30),
+                          CustomTextField(
+                              hintText: AppTexts.email,
+                              controller: controller.tfEmail,
+                              keyboardType: TextInputType.emailAddress,
+                              validator: (text) => Validators.validate(text,
+                                  msg: AppTexts.anEmail,
+                                  regExp: Validators.emailRegExp)),
+                          const SizedBox(height: 20),
+                          CustomTextField(
+                              hintText: AppTexts.password,
+                              controller: controller.tfPassword,
+                              isPasswordField: true,
+                              validator: (text) => Validators.validate(text,
+                                  msg: AppTexts.password,
+                                  regExp: Validators.passwordRegExp)),
+                          const SizedBox(height: 30),
+                          CustomRichText(
+                            title: AppTexts.forgotPassword,
+                            linkTitle: AppTexts.resetPassword,
+                            navigateToClass: Container(),
+                          ),
+                          const SizedBox(height: 30),
+                          CustomElevatedButton(
+                              title: AppTexts.login,
+                              bgColor: AppColors.green,
+                              onTap: () => controller.onLogin()),
+                          const SizedBox(height: 20),
+                          CustomRichText(
+                              title: AppTexts.dontHaveAccount,
+                              linkTitle: AppTexts.signUp,
+                              navigateToClass: Container()),
+                          const SizedBox(height: 30),
+                          CustomTextButton(
+                              title: AppTexts.termsConditions, onTap: () {}),
+                        ],
+                      ),
                     ),
-                    SizedBox(height: 30),
-                    CustomTextField(
-                      hintText: 'Email',
-                      controller: _emailController,
-                      keyboardType: TextInputType.emailAddress,
-                      validator: (value) => value!.trim().isEmpty
-                          ? 'Please enter email'
-                          : !(RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                  .hasMatch(value))
-                              ? 'Please enter valid email'
-                              : null,
-                    ),
-                    SizedBox(height: 20),
-                    CustomTextField(
-                      hintText: 'Password',
-                      controller: _passwordController,
-                      isPasswordField: _hidePassword,
-                      // suffixIcon: _passwordIcon,
-                      iconTap: () {
-                        setState(() {
-                          _hidePassword = !_hidePassword;
-                          if (_hidePassword) {
-                            // _passwordIcon = AppIcons.eye;
-                          } else {
-                            //_passwordIcon = AppIcons.noEye;
-                          }
-                        });
-                      },
-                      validator: (value) => value!.trim().isEmpty
-                          ? 'Please enter password'
-                          : value.trim().length < 8
-                              ? 'password is at least 8 characters'
-                              : null,
-                    ),
-                    SizedBox(height: 30),
-                    // CustomRichText(
-                    //   title: 'Forget password? ',
-                    //   linkTitle: 'Reset',
-                    //   navigateToClass: ForgotPassword(),
-                    // ),
-                    SizedBox(height: 30),
-                    CustomElevatedButton(
-                      title: 'Log In',
-                      bgColor: AppColors.green,
-                      onTap: () async {
-                        if (_formKey.currentState!.validate()) {
-                          CustomTextField.unFocus(context);
-
-                          // SignInProvider.signIn(
-                          //   email: _emailController.text.trim().toLowerCase(),
-                          //   password: _passwordController.text.trim(),
-                          // );
-                        }
-                      },
-                    ),
-                    SizedBox(height: 20),
-                    CustomElevatedButton(
-                      title: 'sign In with phone number',
-                      //textColor: AppColors.green,
-                      bgColor: Colors.transparent,
-                      borderColor: AppColors.green,
-                      onTap: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //       builder: (BuildContext context) =>
-                        //           SignInWithPhone(),
-                        //     ));
-                      },
-                    ),
-                    // Container(
-                    //   margin: EdgeInsets.symmetric(
-                    //       vertical: AppGlobals.screenHeight * 0.06),
-                    //   //child:
-                    //   //  Image.asset(
-                    //   //   AppGifs.buddy,
-                    //   //   height: AppGlobals.screenHeight * 0.12,
-                    //   // ),
-                    // ),
-                    CustomRichText(
-                      title: 'Don’t have an account? ',
-                      linkTitle: 'Sign Up',
-                      navigateToClass: Container(),
-                      //DogParent(),
-                    ),
-                    SizedBox(height: 30),
-                    CustomTextButton(
-                      title: '*Terms & Conditions',
-                      onTap: () {
-                        // AppGlobals().urlLuncher(
-                        //   url: AppStaticUrls.termURL,
-                        // );
-                      },
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ),
+          );
+        });
+  }
+}
+
+class CustomRichText extends StatelessWidget {
+  const CustomRichText(
+      {Key? key,
+      this.color,
+      required this.title,
+      required this.linkTitle,
+      required this.navigateToClass,
+      this.termAndPrivacyCall = false,
+      this.url})
+      : super(key: key);
+  final String title, linkTitle;
+  final Widget navigateToClass;
+  final Color? color;
+  final bool termAndPrivacyCall;
+  final String? url;
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+        style: Helper.textStyle(fontSize: 14, color: color),
+        children: [
+          TextSpan(text: title),
+          TextSpan(
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  print('navigate');
+                  if (termAndPrivacyCall == false) {
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => navigateToClass));
+                  } else {
+                    // AppGlobals().urlLuncher(
+                    //   url: url,
+                    // );
+                  }
+                },
+              text: linkTitle,
+              style: Helper.textStyle(fontSize: 14, color: AppColors.green)
+                  .copyWith(decoration: TextDecoration.underline))
+        ],
       ),
     );
   }
