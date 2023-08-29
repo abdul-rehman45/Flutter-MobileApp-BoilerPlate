@@ -1,5 +1,4 @@
 // ignore_for_file: curly_braces_in_flow_control_structures
-import 'package:flutter/material.dart';
 import 'package:flutterproject/Widgets/overlays/custom_dialog.dart';
 import 'package:flutterproject/backend/apis/apis.dart';
 import 'package:flutterproject/backend/models/auth/user_model.dart';
@@ -8,36 +7,35 @@ import 'package:flutterproject/constants/texts.dart';
 import 'package:flutterproject/constants/url.dart';
 import 'package:flutterproject/helpers/helpers.dart';
 import 'package:flutterproject/helpers/storage_helper.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class SocialAuth {
   static Future<void> googleAuth() async {
-    GoogleSignInAccount? _googleUser;
-    try {
-      GoogleSignIn googleSignIn = GoogleSignIn();
-      _googleUser =
-          await googleSignIn.signInSilently() ?? await googleSignIn.signIn();
+    // GoogleSignInAccount? _googleUser;
+    // try {
+    //   GoogleSignIn googleSignIn = GoogleSignIn();
+    //   _googleUser =
+    //       await googleSignIn.signInSilently() ?? await googleSignIn.signIn();
 
-      appLogs("google login user: ${_googleUser?.displayName}");
-      if (_googleUser != null) {
-        socialSignUp(
-            firstName: _googleUser.displayName,
-            email: _googleUser.email,
-            photoUrl: _googleUser.photoUrl,
-            type: "Google");
-      }
-    } catch (e) {
-      appLogs(e.toString());
-    }
+    //   appLogs("google login user: ${_googleUser?.displayName}");
+    //   if (_googleUser != null) {
+    //     socialSignUp(
+    //         firstName: _googleUser.displayName,
+    //         email: _googleUser.email,
+    //         photoUrl: _googleUser.photoUrl,
+    //         type: "Google");
+    //   }
+    // } catch (e) {
+    //   appLogs(e.toString());
+    // }
   }
 
   static Future<void> googleAuthSignOut() async {
-    try {
-      GoogleSignIn googleSignIn = GoogleSignIn();
-      await googleSignIn.signOut();
-    } catch (e) {
-      debugPrint(e.toString());
-    }
+    // try {
+    //   GoogleSignIn googleSignIn = GoogleSignIn();
+    //   await googleSignIn.signOut();
+    // } catch (e) {
+    //   debugPrint(e.toString());
+    // }
   }
 
   static Future<void> facebookAuth() async {}
